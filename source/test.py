@@ -8,7 +8,7 @@ load_dotenv()
 
 # Access your API key like this
 api_key = os.getenv("OPENAI_API_KEY")
-
+openai.api_key = api_key
 print(api_key)
 
 
