@@ -1,3 +1,4 @@
+from flask import Flask, render_template, request
 import openai
 import os
 from dotenv import load_dotenv
@@ -22,6 +23,16 @@ SYSTEM_MESSAGE = {
     '''
 }
 
+app = Flask(__name__)
+
+@app.route('/', methods=['GET', 'POST'])
+def chat():
+    if request.method == 'POST':
+        user_input = request.form['user_input']
+        translation = run_translation(user_input)
+        return render_template('index.html', user_input=user_input, translation=translation)
+    return render_template('index.html')
+
 def run_translation(content):
     messages = [
         {
@@ -38,12 +49,7 @@ def run_translation(content):
         max_tokens=512  # limiting the tokens as we only want the question, no greetings or sign-offs
     )
 
-    return response['choices'][0]['message']['content']
+    return response['choices'][0]['message']
 
 if __name__ == '__main__':
-    while True:
-        user_input = input("Enter a sentence to translate (or 'exit' to quit): ")
-        if user_input.lower() == 'exit':
-            break
-        translation = run_translation(user_input)
-        print(translation)
+    app.run(debug=True)
