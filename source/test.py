@@ -1,5 +1,15 @@
 import openai
 
+import os
+from dotenv import load_dotenv
+
+# Load .env file
+load_dotenv()
+
+# Access your API key like this
+api_key = os.getenv("API_KEY")
+
+
 SYSTEM_MESSAGE = {
     'role':'system',
     'content':'''  
