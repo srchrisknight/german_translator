@@ -1,0 +1,8 @@
+ <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>Translation Chat</title> 
+</head> <body>
+    <h1>Translation Chat</h1> <form method="post"> <label for="user_input">Enter a sentence to 
+        translate:</label> <input type="text" id="user_input" name="user_input" required> <button 
+        type="submit">Translate</button>
+    </form> {% if user_input %} <p>User Input: {{ user_input }}</p> <p>Translation: {{ translation 
+    }}</p>
+    {% endif %} </body> </html>
