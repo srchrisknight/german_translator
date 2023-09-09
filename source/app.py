@@ -7,7 +7,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Access your API key like this
-api_key = os.getenv("OPENAI_API_KEY")
+# api_key = os.getenv("OPENAI_API_KEY")
+api_key = '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'
 openai.api_key = api_key
 
 SYSTEM_MESSAGE = {
