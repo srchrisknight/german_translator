@@ -7,7 +7,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Access your API key like this
-api_key = os.getenv("API_KEY")
+api_key = os.getenv("OPENAI_API_KEY")
+
+print(api_key)
 
 
 SYSTEM_MESSAGE = {
