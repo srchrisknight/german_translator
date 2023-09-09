@@ -23,7 +23,7 @@ SYSTEM_MESSAGE = {
     '''
 }
 
-app = Flask(__name__)
+flask_app = Flask(__name__)
 
 @app.route('/chat', methods=['GET', 'POST'])
 def chat():
