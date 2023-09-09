@@ -2,9 +2,9 @@ from flask import Flask, render_template, request
 import openai
 import os
 from dotenv import load_dotenv
-
+env_path = os.path.join(os.path.dirname(__file__), '.env')
 # Load .env file
-load_dotenv()
+load_dotenv(env_path)
 
 # Access your API key like this
 api_key = os.getenv("OPENAI_API_KEY")
