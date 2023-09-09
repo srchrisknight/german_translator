@@ -2,13 +2,18 @@ from flask import Flask, render_template, request
 import openai
 import os
 from dotenv import load_dotenv
+
+app = Flask(__name__)
+
 env_path = os.path.join(os.path.dirname(__file__), '.env')
 # Load .env file
 load_dotenv(env_path)
+app.logger.info(env_path)
 
 # Access your API key like this
 api_key = os.getenv("OPENAI_API_KEY")
 openai.api_key = api_key
+app.logger.info(api_key)
 
 SYSTEM_MESSAGE = {
     'role': 'system',
@@ -22,8 +27,6 @@ SYSTEM_MESSAGE = {
         Translation: <Translation>
     '''
 }
-
-app = Flask(__name__)
 
 @app.route('/chat', methods=['GET', 'POST'])
 def chat():
