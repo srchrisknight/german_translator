@@ -25,7 +25,7 @@ SYSTEM_MESSAGE = {
 
 flask_app = Flask(__name__)
 
-@app.route('/chat', methods=['GET', 'POST'])
+@flask_app.route('/chat', methods=['GET', 'POST'])
 def chat():
     if request.method == 'POST':
         user_input = request.form['user_input']
