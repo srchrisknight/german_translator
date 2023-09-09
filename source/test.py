@@ -38,7 +38,7 @@ def run_translation(content):
         max_tokens=512  # limiting the tokens as we only want the question, no greetings or sign-offs
     )
 
-    return response['choices'][0]['message']
+    return response['choices'][0]['message']['content']
 
 if __name__ == '__main__':
     while True:
