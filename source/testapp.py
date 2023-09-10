@@ -47,7 +47,7 @@ def run_translation(content):
     messages.append(SYSTEM_MESSAGE)
 
     response = openai.ChatCompletion.create(
-        model="gpt4",
+        model="gpt-4",
         messages=messages,
         max_tokens=512  # limiting the tokens as we only want the question, no greetings or sign-offs
     )
