@@ -40,7 +40,7 @@ def run_translation(content):
     messages = [
         {
             'role': 'user',
-            'content': content
+            'content': f"Please translate the following, \"{content}\""
         }
     ]
 
